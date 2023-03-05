@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+	<title>Informační systém Vysoké školy polytechnické Jihlava</title>
+
+
+	<link href="/css/styles.css?v=1.49" media="screen" rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]> <link href="/css/ie.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 8]> <link href="/css/ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+<link href="/css/print.css?v=1.2" media="print" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/bower_components/jquery-ui/themes/base/minified/jquery-ui.min.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-migrate-1.4.1.js"></script>
+
+    <script type="text/javascript" src="/bower_components/favico.js/favico.js"></script>
+<script type="text/javascript" src="/js/ui/i18n/jquery.ui.datepicker-cs.js"></script>
+<script type="text/javascript" src="/js/jquery.radio.checkbox.behave.js"></script>
+<script type="text/javascript" src="/js/scripts.min.js?v=1.5"></script>    <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <script type="text/javascript" charset="utf8" src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+</head>
+
+<body id="main">
+<div class="row d-flex justify-content-center">
+	<div id="responsive-container" class="col-lg-8 col-xs-12">
+        <nav class="navbar navbar-default bg-light" id="top-odkazy">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand" style="color: #A00E07;font-weight: bold;">Přejít na: </span>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li>
+                            <a class="nav-link" href="http://vspj.cz" target="_blank">VŠPJ</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="https://moodle.vspj.cz/"
+                               target="_blank">E-learning</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="https://helpdesk.vspj.cz"
+                               target="_blank">Helpdesk</a>
+                        </li>
+													                                <li><a class="nav-link" href="https://login.microsoftonline.com/"
+                                       target="_blank">Pošta</a></li>
+                                <li><a class="nav-link" href="https://icanteen.vspj.cz"
+                                       target="_blank">Menza</a></li>
+													
+                        <li><a class="nav-link" href="https://elanor.vspj.cz/"
+                               target="_blank">HR portál</a></li>
+                        <li><a class="nav-link" href="https://vspj.tritius.cz/"
+                               target="_blank">Knihovna</a></li>
+                        <li><a class="nav-link" href="https://navody.vspj.cz"
+                               target="_blank">Návody</a></li>
+                        <li><a class="nav-link" href="https://praxe.vspj.cz"
+                               target="_blank">Praxe</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		<div id="container" style="background-color: ">
+			<div class="row d-flex" id="header">
+				<div class="col align-self-center">
+					<a href="https://is.vspj.cz" title="Zpět na úvodní stránku">
+						<img style="margin-top: 0.25rem !important; margin-left: 1.5rem !important; margin-bottom: 0.5rem !important; width: 70px;" class="visible-md-block visible-lg-block" src="/images/vspj.gif" alt="Logo VŠPJ">
+						<img style="margin-top: 0.25rem !important; margin-left: 1.5rem !important; margin-bottom: 0.5rem !important; width: 50px;" class="visible-xs-block visible-sm-block" src="/images/vspj.gif" alt="Logo VŠPJ">
+					</a>
+				</div>
+
+				<div class="col align-self-center text-center" style="flex-grow: 2;">
+					<h1 class="visible-lg-block" style="color: #fff">
+						<span class="align-middle">Informační systém Vysoké školy polytechnické Jihlava</span>
+					</h1>
+					<h1 class="hidden-lg" style="color: #fff">
+						<span class="align-middle">IS VŠPJ</span>
+					</h1>
+				</div>
+
+				<div class="col align-self-center">
+											<div class="row d-flex justify-content-end" style="flex-wrap: nowrap; margin-right: 0.5rem !important;">
+							
+							<div class="col-auto align-self-center">
+								                                    <span class="align-middle text-center"
+                                          style="display: inline-block; background-color: white; width: 35px;height:35px;">
+                                                                                    <i class="glyphicon glyphicon-user"
+                                               style="color: rgba(0, 0, 0, 0.5) !important; border-radius: 50%; width: 85% !important; font-size: 1.5em; margin-top: 9px;"></i>
+										                                    </span>
+															</div>
+
+							<div class="col-auto align-self-center" style="margin-left: 0.5rem !important;">
+								<div class="dropdown" id="dropdown-user-toggle">
+									<button class="btn dropdown-toggle" type="button" id="dropdown-menu-user-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+											style="color: #fff !important; background-color: transparent; padding-left: 0;">
+										<span class="hidden-xs">
+												<span class="hidden-lg text-right">
+																										<span>
+																												Aleksandr Shabelnikov																																									</span>
+												</span>
+												<span class="visible-lg-inline text-right">
+																										<span>
+																												Aleksandr Shabelnikov																																									</span>
+												</span>
+											</span>
+
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu dropdown-menu-right" id="dropdown-menu-user"
+										aria-labelledby="dropdown-menu-user-button">
+										<li class="text-center">
+																						<span class="align-middle text-center"
+												  style="display: inline-block; background-color: white; width: 70px;height: 70px;">
+																					<i class="glyphicon glyphicon-user"
+											   style="color: rgba(0, 0, 0, 0.5) !important; border-radius: 50%; font-size: 4.0em; margin-top: 10px;"></i>
+																			</span><br><br>
+											                                        </li>
+                                        <li class="text-center"><a class="dropdown-item-text">
+																						<span style="color: black;">
+										                                                        Aleksandr Shabelnikov												                                                									        </span>
+                                            </a>
+										</li>
+																				<li role="separator" class="divider"></li>
+										<li>
+                                            <a title="Online nápověda Informačního systému VŠPJ" target="_blank"
+                                               href="/napoveda">Nápověda</a>
+                                        </li>
+																				    <li><a href="/other/is_faq.pdf">FAQ</a></li>
+																				<li>
+                                            <a title="Odhlášení z IS VŠPJ"
+											   href="//is.vspj.cz/logout">
+												Odhlásit											</a>
+                                        </li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-auto align-self-center">
+								<a style="height: 30px; padding-top: 7px; margin-right: 1.3rem !important;" class="btn btn-sm btn-outline-light" href="//is.vspj.cz/logout">
+									<i class="glyphicon glyphicon-off"></i>
+								</a>
+							</div>
+						</div>
+									</div>
+			</div>
+
+			<div class="menu">
+	<ul id="topMenu"><li><a href="https://is.vspj.cz/" title="Návrat na úvod IS"><img src="/images/home.gif" alt="Aktuality" /></a></li><li><a href="#">Osobní</a><ul id="topMenu"><li><a href="https://is.vspj.cz/user/osobni-informace-studenta/prehled">Osobní informace a RC</a></li><li><a href="https://is.vspj.cz/ekomunikace/student-osobni-slozka/prehled">Osobní složka</a></li><li><a href="/student/osobni/cislo-uctu">Číslo účtu</a></li><li><a href="https://is.vspj.cz/skolni-karta">ISIC, ALIVE, školní karta</a></li><li><a href="/student/osobni/dosle-platby">Platby a symboly</a></li><li><a href="/email/">Nastavení pošty</a></li><li><a href="/elearning/">Nastavení Moodlu</a></li><li><a href="/student/nastaveni-terminu/">Nastavení zobrazení jména</a></li><li><a href="https://is.vspj.cz/gdpr">Ochrana soukromí</a></li><li><a href="https://is.vspj.cz/obecne-formulare/koronavirus/pridat-vysledek-testu/71735" title="Zadání certifikátu o platnosti očkování na Koronavirus, nebo potvrzení o prodělané nemoci na covid-19">Koronavirus potvrzeni</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Výuka</a><ul id="topMenu"><li><a href="/studijni-plany/index">Přehled stud. plánů</a></li><li><a href="https://is.vspj.cz/spravce-souboru/soubor/stahnout-aktualni-dokument/2115">Metodický pokyn k organizaci výuky</a></li><li><a href="https://is.vspj.cz/spravce-souboru/soubor/stahnout-aktualni-dokument/2019">Studijní a zkušební řád</a></li><li><a href="https://www.vspj.cz/pruvodce-studiem.pdf?v=5">Průvodce studiem</a></li><li><a href="https://www.vspj.cz/2021/rady_a_tipy_ke_studiu.pdf?v=1.02">Rady a tipy ke studiu</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="/studijni-plany/student-doporuceny-studijni-plan">Studium</a><ul id="topMenu"><li><a href="/studijni-plany/student-doporuceny-studijni-plan">Dop. studijní plán</a></li><li><a href="/student/zkousky/moje-terminy">Přihlášené termíny</a></li><li><a href="/student/zkousky/kalendar">Kalendář zkoušek</a></li><li><a href="https://is.vspj.cz/vzkazy/vzkazy-studentovi/vypis">Vzkazy</a></li><li><a href="/student/zkousky/prehled-hodnoceni">Přehled hodnocení</a></li><li><a href="/student/zkousky/seznam-oprav">Seznam oprav hodnocení</a></li><li><a href="/student/studium/prehled-zahranicnich-predmetu">Zahraniční předměty</a></li><li><a href="/sestavy/uspesnost-predmetu/student">Průměrné úspěšnosti předmětů</a></li><li><a href="/student/osobni/seznam-potvrzeni">Potvrzení o studiu</a></li><li><a href="https://is.vspj.cz/ekomunikace/student-zadost/prehled">Elektronické žádosti studentů</a></li><li><a href="/student/zadost-uznani/index">Žádosti o uznání</a></li><li><a href="https://is.vspj.cz/soubory/download/soubor/417">Žádost o zrušení přihlášení na ZK</a></li><li><a href="/ucebny/orientacni-plan">Orientační plán</a></li><li><a href="https://is.vspj.cz/dokumentace-student/prehled">Důležité dokumenty</a></li><li><a href="https://www.vspj.cz/student/harmonogram/harmonogram-akademickeho-roku" target="_blank">Harmonogram akademického roku</a></li><li><a href="https://is.vspj.cz/sims/student/mapa-studii">Mapa mých studií</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Stipendia</a><ul id="topMenu"><li><a href="/student/stipendia/ubytovaci">Ubytovací</a></li><li><a href="/student/stipendia/mimoradna">Mimořádná</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Učitelé</a><ul id="topMenu"><li><a href="/student/konzultacni-hodiny/">Konzultační hodiny</a></li><li><a href="/student/absence/prehled-absenci-ucitelu/">Absence</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="/student/rozvrh/registrace">Rozvrh</a><ul id="topMenu"><li><a href="https://isz.vspj.cz/student/soubory/download/soubor/1785">Jak vytvořit rozvrh</a></li><li><a href="/student/rozvrh/videonavod">Videonávod k rozvrhu</a></li><li><a href="/student/rozvrh/registrace">Registrace předmětů</a></li><li><a href="/student/rozvrh/tvorba-rozvrhu">Tvorba rozvrhu</a></li><li><a href="/student/rozvrh/registracni-list">Zápisový list</a></li><li><a href="/student/rozvrh/muj-rozvrh">Můj rozvrh</a></li><li><a href="/rozvrhy/rozvrh-predmetu-simple">Rozvrh předmětů</a></li><li><a href="/rozvrhy/rozvrh-ucebny-simple">Rozvrh učeben</a></li><li><a href="/rozvrhy/rozvrh-ucitele-prezencni">Rozvrh učitele prezenční</a></li><li><a href="/rozvrhy/rozvrh-ucitele-kombi">Rozvrh učitele kombi</a></li><li><a href="/student/rozvrh/vzkazy">Důležité vzkazy</a></li><li><a href="https://is.vspj.cz/spravce-souboru/soubor/stahnout-aktualni-dokument/2390" title="Časový plán registrace předmětů a tvorby rozvrhu">Časový plán registrace předmětů a tvorby rozvrhu</a></li><li><a href="https://is.vspj.cz/spravce-souboru/soubor/stahnout-aktualni-dokument/2115">Metodický pokyn k organizaci výuky</a></li><li><a href="/student/rozvrh/pocty-studentu">Počty studentů v rozvrhu</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="/student/szz/">SZZ</a></li><li><a href="https://is.vspj.cz/zaverecne-prace/student/">Závěrečné práce</a><ul id="topMenu"><li><a href="https://is.vspj.cz/zaverecne-prace/student/">Odevzdání závěrečné práce</a></li><li><a href="/student/bp/seznam-temat">Seznam témat ZP</a></li><li><a href="https://is.vspj.cz/zaverecne-prace/seznam-zpracovanych-praci/obhajene">Seznam zpracovaných ZP</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Ostatní</a><ul id="topMenu"><li><a href="/ostatni/ebsco">Katalog EBSCO</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="https://is.vspj.cz/dotaznik/student">Anketa</a></li><li><a href="https://is.vspj.cz/koleje/prehled-zadosti">Koleje</a><ul id="topMenu"><li><a href="https://is.vspj.cz/obecne-formulare/koronavirus/pridat-vysledek-testu/71735" title="Zadání potvrzení o platnosti testu nebo očkování na Koronavirus">Koronavirus potvrzeni</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="/student/poradna/">Poradna</a></li><li><a href="#">Erasmus+</a><ul id="topMenu"><li><a href="https://is.vspj.cz/erasmus/student-zadost/prehled">Můj přehled</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="" title="Celoživotní vzdělávání">CŽV</a><ul id="topMenu"><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/otevrene" title="CŽV - Seznam aktuálně nabízených kurzů">Aktuální nabídka kurzů</a></li><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/moje-podane" title="CŽV - Seznam aktivních přihlášek do kurzů">Moje přihlášky</a></li><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/moje-ucastnik" title="CŽV - Kurzy kterých se aktuálně účastním">Moje kurzy</a></li><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/moje-nahradnik" title="CŽV - Kurzy ve kterých jsem aktuálně náhradníkem">Náhradníkem v kurzech</a></li><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/moje-absolvent" title="CŽV - Kurzy které jsou úspěšně absolvovány">Moje absolvované kurzy</a></li><li><a href="https://is.vspj.cz/celozivotni-vzdelavani/eprihlaska/celozivotni-vzdelavani-studijni-plan/moje-zrusene" title="CŽV - Kurzy do kterých byla podána přihláška, ale byly z nějakého důvodu zrušeny">Moje zrušené kurzy</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Vstupenky</a><ul id="topMenu"><li><a href="https://is.vspj.cz/web/ziskat-vstupenky/index/">Získat vstupenky</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Volby do AS</a><ul id="topMenu"><li><a href="https://is.vspj.cz/volby/kandidat/prehled">Kandidování</a></li><li><a href="https://is.vspj.cz/volby/volby/prehled">Volby</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li><li><a href="#">Podpůrné kurzy</a><ul id="topMenu"><li><a href="https://is.vspj.cz/prazdninova-skola/prihlaseni/prehled">Přihlášení</a></li><li><a href="https://is.vspj.cz/prazdninova-skola/prihlaseni/prehled-prihlaseni">Přehled přihlášení</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script>    <div class="cleaner"></div>
+</div>			<div id="body-container">
+									<div id="right-panel-toggle" class="visible-xs noprint">
+						<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#right-panel">Zobrazit pravý panel</button>
+					</div>
+					<div id="right-panel" class="collapse">
+						    <fieldset>
+        <legend>Menu</legend>
+
+        <ul id="sub-menu">
+                                                <li><a href="/student/rozvrh/registrace">Zápis předmětů</a></li>
+                                                                <li><a href="/student/rozvrh/tvorba-rozvrhu">Tvorba rozvrhu</a></li>
+                                                                <li><a href="/student/rozvrh/muj-rozvrh">Můj rozvrh</a></li>
+                                                                <li><a href="/student/rozvrh/registracni-list">Zápisový list</a></li>
+                                                                <li><a href="/student/rozvrh/vzkazy">Důležité vzkazy</a></li>
+                                                                <li><a href="//is.vspj.cz/spravce-souboru/soubor/stahnout-aktualni-dokument/2390">Časový plán registrace předmětů a tvorby rozvrhu</a></li>
+                                                                <li><a href="https://isz.vspj.cz/student/soubory/download/soubor/1785">Jak vytvořit rozvrh</a></li>
+                                                                <li><a href="/student/rozvrh/pocty-studentu">Počty studentů v rozvrhu</a></li>
+                                    </ul>
+    </fieldset>
+												<fieldset class="info_sekce">
+	<legend>Rychlá nápověda</legend>
+	<dl>
+	        <dt>Problémy s rozvrhem</dt>
+            <dd><p>V případě problémů s tvorbou rozvrhu využijte Formulář podpory. </p>
+<p class="bold">Nekontaktujte studijní oddělení a konkrétní vyučující s problémy s rozvrhem!</p></dd>
+    	</dl>
+</fieldset>
+					</div>
+				
+				<div id="body">
+					<script type="text/javascript">
+    $(document).ready(function(){
+     var favicon = new Favico({
+        type : 'circle'
+        });
+
+     $('span#nove').change(function(){
+         favicon.badge(parseInt($('span#nove').text()));
+     }).change();
+    });
+</script>
+<h4 id="im" class="noprint">Důležité informace</h4>
+<ul class="important-messages noprint">
+		<li class="alert" style="margin-bottom: 0 !important;">Nemáte odeslaný zápisový list. <a href="/student/rozvrh/registracni-list">Přejít na zápisový list &raquo;</a></li>
+	
+		<li class="message">Máte nové nepřečtené vzkazy (<span id='nove'>116</span>).<a href="//is.vspj.cz/vzkazy/vzkazy-studentovi/vypis">Prohlédnout vzkazy &raquo;</a></li>
+	
+	</ul>
+										<h2>Rozvrh hodin</h2>
+					
+					
+					<form method="get" action=""><dl class="zend_form">
+<dt id="semestr-label"><label for="semestr" class="optional">Semestr</label></dt>
+<dd id="semestr-element">
+<select name="semestr" id="semestr">
+    <option value="33" label="zima 2021 / 2022" title="zima 2021 / 2022">zima 2021 / 2022</option>
+    <option value="34" label="léto 2021 / 2022" title="léto 2021 / 2022">léto 2021 / 2022</option>
+    <option value="35" label="zima 2022 / 2023" title="zima 2022 / 2023">zima 2022 / 2023</option>
+    <option value="36" label="léto 2022 / 2023" title="léto 2022 / 2023" selected="selected">léto 2022 / 2023</option>
+</select></dd>
+<dt class="empty"></dt><dd>
+<input type="submit" name="submit" id="submit" value="Zobrazit rozvrh" /></dd></dl></form>
+
+<table>
+    <tr><td width="50"></td>
+    <td align ="center" width="50"> 0 </td>
+    <td align ="center" width="50"> 1 </td>
+    <td align ="center" width="50"> 2 </td>
+    <td align ="center" width="50"> 3 </td>
+    <td align ="center" width="50"> 4 </td>
+    <td align ="center" width="50"> 5 </td>
+    <td align ="center" width="50"> 6 </td>
+    <td align ="center" width="50"> 7 </td>
+    <td align ="center" width="50"> 8 </td>
+    <td align ="center" width="50"> 9 </td>
+    <td align ="center" width="50"> 10 </td>
+    <td align ="center" width="50"> 11 </td>
+    <td align ="center" width="50"> 12 </td>
+    <td align ="center" width="50"> 13 </td>
+</tr>
+    <tr align="center">
+        <th rowspan="2">po</th>
+                                                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                        <td style="background: #C0CFFF" colspan="2">   
+                                                            <b><abbr title="Programovací jazyky a překladače">
+									xPJP                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P3 - (<abbr title="Počet přihlášených / kapacita">61/62</abbr>)<br />
+                                                        <abbr title="doc. Dr. Ing. Jan Voráček, CSc.">
+                                Voráček                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39232">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                               
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                            <td style="background: #E6DCCF" colspan="2">   
+                                                            <b><abbr title="Programovací jazyky a překladače">
+									xPJP                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V7 - (<abbr title="Počet přihlášených / kapacita">31/31</abbr>)<br />
+                                                        <abbr title="doc. Dr. Ing. Jan Voráček, CSc.">
+                                Voráček                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39234">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                               
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+              
+                                    </tr><tr align="center">
+                                                                                                                                                                                                                                    <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                        <td style="background: #FFBFDC" colspan="1">   
+                                                            <b><abbr title="Pokročilé programovací techniky">
+									PPT                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P4 - (<abbr title="Počet přihlášených / kapacita">44/50</abbr>)<br />
+                                                        <abbr title="Ing. Marek Musil">
+                                Musil                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39411">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                       
+                                                                                                                            <td style="background: #D5BFFF" colspan="2">   
+                                                            <b><abbr title="Pokročilé programovací techniky">
+									PPT                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V9 - (<abbr title="Počet přihlášených / kapacita">23/25</abbr>)<br />
+                                                        <abbr title="Ing. Marek Musil">
+                                Musil                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39412">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                <td style="background: #BFF9FF" colspan="2">   
+                                                            <b><abbr title="Návrh a implementace databázových systémů">
+									NIDB                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P2 - (<abbr title="Počet přihlášených / kapacita">53/55</abbr>)<br />
+                                                        <abbr title="doc. Ing. Zbyněk Bureš, Ph.D.">
+                                Bureš                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39599">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                                                                   
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="1">út</th>
+                                                                                                                                                                                                                                            <td></td>
+                           
+                                                                                        <td style="background: #FFBFBF" colspan="2">   
+                                                            <b><abbr title="Počítačová grafika a virtuální realita">
+									PGVR                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P1 - (<abbr title="Počet přihlášených / kapacita">48/55</abbr>)<br />
+                                                        <abbr title="Mgr. Bc. Petr Jelínek">
+                                Jelínek                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39405">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                       
+                                                                                                                                                                                                   
+                                                                                                                            <td style="background: #FFEFBF" colspan="2">   
+                                                            <b><abbr title="Operační systémy">
+									OPS                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P1 - (<abbr title="Počet přihlášených / kapacita">54/60</abbr>)<br />
+                                                        <abbr title="PaedDr. František Smrčka, Ph.D.">
+                                Smrčka                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39154">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                                                                   
+                                                                                                                                                                <td style="background: #EABFFF" colspan="2">   
+                                                            <b><abbr title="Podnikové informační systémy">
+									PIS                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P1 - (<abbr title="Počet přihlášených / kapacita">54/60</abbr>)<br />
+                                                        <abbr title="Mgr. Hana Vojáčková, Ph.D.">
+                                Vojáčková                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39226">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                                                                   
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+                                                                                                                                                                                                            <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="2">st</th>
+                                                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                        <td style="background: #BFCFFF" colspan="2">   
+                                                            <b><abbr title="Operační systémy">
+									OPS                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            EIT - (<abbr title="Počet přihlášených / kapacita">14/20</abbr>)<br />
+                                                        <abbr title="PaedDr. František Smrčka, Ph.D.">
+                                Smrčka                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39156">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                                                           
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                            <td style="background: #FFBFFF" colspan="2">   
+                                                            <b><abbr title="Zpracování signálu a obrazu">
+									xZSO                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            U15 - (<abbr title="Počet přihlášených / kapacita">16/20</abbr>)<br />
+                                                        <abbr title="Dr. Ing. Vlastimil Vondra">
+                                Vondra                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39679">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                       
+                                                                                                                                                                                                                                       
+                                                                                                                                                                <td style="background: #BFDEFF" colspan="2">   
+                                                            <b><abbr title="Zpracování signálu a obrazu">
+									xZSO                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            AMT - (<abbr title="Počet přihlášených / kapacita">16/20</abbr>)<br />
+                                                        <abbr title="Dr. Ing. Vlastimil Vondra">
+                                Vondra                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39682">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                    <td style="background: #FFBFEE" colspan="2">   
+                                                            <b><abbr title="Počítačová grafika a virtuální realita">
+									PGVR                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V9 - (<abbr title="Počet přihlášených / kapacita">18/25</abbr>)<br />
+                                                        <abbr title="Mgr. Bc. Petr Jelínek">
+                                Jelínek                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/41415">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                                                                                                       
+              
+                                    </tr><tr align="center">
+                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                        <td style="background: #FFE3BF" colspan="2">   
+                                                            <b><abbr title="Umělá inteligence">
+									UI                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            U13 - (<abbr title="Počet přihlášených / kapacita">37/50</abbr>)<br />
+                                                        <abbr title="Ing. Lenka Kuklišová Pavelková, Ph.D.">
+                                Kuklišová Pavelková                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39582">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                               
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                            <td style="background: #E6BFFF" colspan="2">   
+                                                            <b><abbr title="Bezpečnost a ochrana dat">
+									xBOD                            </abbr></b><br />
+                            <small>
+                            1. př<br />
+                            P4 - (<abbr title="Počet přihlášených / kapacita">54/60</abbr>)<br />
+                                                        <abbr title="Mgr. Antonín Přibyl">
+                                Přibyl                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39631">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                               
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="1">čt</th>
+                                                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                        <td style="background: #E6DACF" colspan="2">   
+                                                            <b><abbr title="Podnikové informační systémy">
+									PIS                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V9 - (<abbr title="Počet přihlášených / kapacita">26/26</abbr>)<br />
+                                                        <abbr title="Mgr. Hana Vojáčková, Ph.D.">
+                                Vojáčková                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39227">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                                                           
+                                                                                                                                                                                                                                       
+                                                                                                                            <td style="background: #E6FFED" colspan="2">   
+                                                            <b><abbr title="Bezpečnost a ochrana dat">
+									xBOD                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            EIT - (<abbr title="Počet přihlášených / kapacita">17/20</abbr>)<br />
+                                                        <abbr title="Mgr. Antonín Přibyl">
+                                Přibyl                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39633">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                                                       
+                                                                                                                                                                                                                                       
+                                                                                                                                                                <td style="background: #EEE6FF" colspan="2">   
+                                                            <b><abbr title="Umělá inteligence">
+									UI                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V2 - (<abbr title="Počet přihlášených / kapacita">18/20</abbr>)<br />
+                                                        <abbr title="Ing. Lenka Kuklišová Pavelková, Ph.D.">
+                                Kuklišová Pavelková                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/39584">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                    <td style="background: #FFF2E6" colspan="2">   
+                                                            <b><abbr title="Návrh a implementace databázových systémů">
+									NIDB                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V7 - (<abbr title="Počet přihlášených / kapacita">24/25</abbr>)<br />
+                                                        <abbr title="Ing. Mgr. Michal Jeřábek, Ph.D.">
+                                Jeřábek                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/41419">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+                                                                                                                                                                                                                                                <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="1">pá</th>
+                                                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                        <td style="background: #FFFFE6" colspan="3">   
+                                                            <b><abbr title="Základy akademického psaní">
+									ZAP                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            U11 - (<abbr title="Počet přihlášených / kapacita">27/28</abbr>)<br />
+                                                        <abbr title="Mgr. Zdeňka Dostálová">
+                                Dostálová                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/41284">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                                                                   
+                                                                                                                                                               
+                                                                                                                                                               
+                                                                                                                            <td style="background: #e8a317" colspan="2">   
+                                                            <b><abbr title="Praktické aplikace strojového učení">
+									PASU                            </abbr></b><br />
+                            <small>
+                            1. cvi<br />
+                            V9 - (<abbr title="Počet přihlášených / kapacita">8/20</abbr>)<br />
+                                                        <abbr title="Ing. Jan Mittner, Ph.D.">
+                                Mittner                            </abbr>
+                                                                                    <br/>
+                            <a class="noprint" target="_blank" href="/rozvrhy/seznam-studentu/uvazek/40530">
+                            seznam</a>
+                                                        </small>
+                            <div>
+                                                                                    </div>
+                                                    </td>
+                                                                               
+                                                                                                                                                               
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+                                                                                                                                                                        <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="1">so</th>
+                                                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+              
+            </tr>
+    <tr align="center">
+        <th rowspan="1">ne</th>
+                                                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+                                                                <td></td>
+                           
+              
+            </tr>
+</table>
+
+
+<h3>Časový rozpis hodin</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Hodina</th><th>Čas</th>
+            <th>Hodina</th><th>Čas</th>
+            <th>Hodina</th><th>Čas</th>
+        </tr>
+    </thead>
+        <tr align="center">
+            <td>0.</td><td>7:10 - 7:55</td><td>5.</td><td>11:30 - 12:15</td><td>10.</td><td>16:05 - 16:50</td>
+        </tr>
+        <tr align="center">
+            <td>1.</td><td>8:00 - 8:45</td><td>6.</td><td>12:35 - 13:20</td><td>11.</td><td>17:00 - 17:45</td>
+        </tr>
+        <tr align="center">
+            <td>2.</td><td>8:50 - 9:35</td><td>7.</td><td>13:30 - 14:15</td><td>12.</td><td>17:50 - 18:35</td>
+        </tr>
+        <tr align="center">
+            <td>3.</td><td>9:45 - 10:30</td><td>8.</td><td>14:20 - 15:05</td><td>13.</td><td>18:45 - 19:30</td>
+        </tr>
+        <tr align="center">
+            <td>4.</td><td>10:35 - 11:20</td><td>9.</td><td>15:15 - 16:00</td>
+        </tr>
+
+</table>				</div>
+				<div id="ajax-loader"><div class="a-loader"></div>Pracuji, vyčkejte prosím</div>
+
+				<div id="bottom" class="cleaner"></div>
+				<div class="menu">
+
+    <ul id="topMenu"><li><a href="https://is.vspj.cz/zmena-hesla">Změnit heslo</a></li><li><a href="/index/pristoupeno">Poslední přístupy</a></li><li><a href="/index/opravneni">Oprávnění</a></li></ul><link rel="stylesheet" type="text/css" href="https://isz.vspj.cz/css/menu-search.css?v=1.01"><script src="https://isz.vspj.cz/js/menu-search.js?v=1.02"></script>
+
+
+    <div class="verze">
+       
+
+            </div>
+
+    
+    <div class="cleaner"></div>
+</div>			</div>
+
+					</div>
+	</div>
+</div>
+
+</body>
+</html>
