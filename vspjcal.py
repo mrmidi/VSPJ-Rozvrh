@@ -1,17 +1,33 @@
 # scrap VSPJ schedule from IS
+import os
 
 # beautiful soup
 from bs4 import BeautifulSoup
 # import time
 import datetime
 
-
-from ics import Calendar, Event
+from ics import Calendar, Event, Organizer
+from ics.grammar.parse import ContentLine
 
 c = Calendar()
 
 # global variable start_date (d, m, y)
 start_date = datetime.datetime(2023, 3, 6) # 6.3.2023
+end_date = datetime.datetime(2023, 6, 11) # 11.6.2023
+
+
+def set_start_date(date):
+    global start_date
+    # convert dd.mm.yyyy to datetime
+    date = datetime.datetime.strptime(date, "%d.%m.%Y")
+    print("date: ", date)
+    start_date = datetime.datetime(date)
+
+def set_end_date(date):
+    global end_date
+    # convert dd.mm.yyyy to datetime
+    date = datetime.datetime.strptime(date, "%d.%m.%Y")
+    end_date = datetime.datetime(date)
 
 class Subject:
     def __init__(self, day, start_time, end_time, subject_type, subject, teacher, room, title):
@@ -113,32 +129,22 @@ def add_event(subject):
     print(f"Begin: {begin_time}")
     print(f"End: {end_time}")
     print("")
-
+    rrule = f"FREQ=WEEKLY;UNTIL={end_date}"
     e = Event()
+    # teacher = name + email
+    # ORGANIZER;CN="Sally Example":mailto:sally@example.com
+    organizer = Organizer(common_name=subject.teacher, email=teachers[subject.teacher])
+
     e.name = subject.subject + " " + subject.subject_type
     e.description = subject.title
     e.location = subject.room
     e.begin = begin_time
     e.end = end_time
-    e.organizer = subject.teacher
-
-    # repeat every week
-
-    # end repeat on 01.06.2023
-    # color of event
-
-
+    e.organizer = organizer
+    e.extra.append(ContentLine(name="RRULE", value=rrule))
 
     c.events.add(e)
 
-    # e = Event()
-    # e.name = subject.subject
-    # e.description = subject.title
-    # e.location = subject.room
-    #
-    # e.begin = datetime.datetime(2021, 9, 1, 7, 10)
-    # e.end = datetime.datetime(2021, 9, 1, 7, 55)
-    # c.events.add(e)
 
 def make_calendar():
     for subject in schedule:
@@ -166,6 +172,20 @@ def get_timeslot(subject):
     end_date = end_date - datetime.timedelta(hours=1)
     return begin_date, end_date
 
+teachers = {}
+
+# if teachers.txt exists - import it
+if os.path.isfile('teachers.txt'):
+    with open('teachers.txt') as f:
+        for line in f:
+            (key, val) = line.split()
+            teachers[key] = val
+
+print ("**********")
+print (teachers)
+print ("**********")
+
+# teachers dict: teacher -> email
 
 
 def process_row(cells, day):
@@ -200,6 +220,8 @@ def process_row(cells, day):
 
             room = splitted[2]
             teacher = splitted[-2]
+            if teacher not in teachers:
+                teachers[teacher] = teacher + "@vspj.cz"
             title = abbr['title']
 
 
@@ -256,6 +278,13 @@ def process_file(filename):
     print("done")
     print_schedule()
     make_calendar()
+
+    # if teachers.txt not exists, create it
+    if not os.path.exists('teachers.txt'):
+        with open('teachers.txt', 'w') as f:
+            for teacher in teachers:
+                f.write(f"{teacher} {teachers[teacher]}\n")
+
 
     print(c)
 

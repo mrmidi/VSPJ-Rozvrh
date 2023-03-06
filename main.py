@@ -3,15 +3,29 @@
 import os
 import sys
 import vspjcal
+import datetime
 
 print('Number of arguments:', len(sys.argv), 'arguments.')
 print('Argument List:', str(sys.argv))
 
-# # enter start date
-# start_date = input("Enter start date (dd.mm.YYYY): ")
-#
+
+
+start_date = input("Enter start date (dd.mm.YYYY). Default is 06.03.2023: ")
+if start_date == "":
+    start_date = "06.03.2023"
+    # convert to datetime
+    start_date = datetime.datetime.strptime(start_date, "%d.%m.%Y")
+
 # # enter end date
-# end_date = input("Enter end date (dd.mm.YYYY): ")
+end_date = input("Enter end date (dd.mm.YYYY): Default is 11.06.2023: ")
+if end_date == "":
+    end_date = "11.06.2023"
+    time = "00:00:00"
+    # convert to datetime
+    end_date = datetime.datetime.strptime(end_date, "%d.%m.%Y")
+    end_date = datetime.datetime.combine(end_date, datetime.datetime.strptime(time, "%H:%M:%S").time())
+    # convert to 20230310T103000Z format
+    end_date = end_date.strftime("%Y%m%dT%H%M%SZ")
 
 # find all html files in current directory
 pwd = os.getcwd()
@@ -30,4 +44,6 @@ else:
 
 print(f"filename: {filename}")
 
+vspjcal.start_date = start_date
+vspjcal.end_date = end_date
 vspjcal.process_file(filename)
