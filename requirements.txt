@@ -1,0 +1,3 @@
+beautifulsoup4==4.11.2
+bottle==0.12.25
+ics==0.7.2
