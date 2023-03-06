@@ -3,31 +3,28 @@ import os
 
 # beautiful soup
 from bs4 import BeautifulSoup
-# import time
 import datetime
 
 from ics import Calendar, Event, Organizer
 from ics.grammar.parse import ContentLine
 
 c = Calendar()
-
-# global variable start_date (d, m, y)
 start_date = datetime.datetime(2023, 3, 6) # 6.3.2023
 end_date = datetime.datetime(2023, 6, 11) # 11.6.2023
-
 
 def set_start_date(date):
     global start_date
     # convert dd.mm.yyyy to datetime
     date = datetime.datetime.strptime(date, "%d.%m.%Y")
-    print("date: ", date)
     start_date = datetime.datetime(date)
+
 
 def set_end_date(date):
     global end_date
     # convert dd.mm.yyyy to datetime
     date = datetime.datetime.strptime(date, "%d.%m.%Y")
     end_date = datetime.datetime(date)
+
 
 class Subject:
     def __init__(self, day, start_time, end_time, subject_type, subject, teacher, room, title):
@@ -41,7 +38,8 @@ class Subject:
         self.title = title
 
     def __str__(self):
-        return f"{self.day} {self.start_time} {self.end_time} {self.subject_type} {self.subject} {self.teacher} {self.room} {self.title}"
+        return f"{self.day} {self.start_time} {self.end_time} {self.subject_type} {self.subject} {self.teacher} " \
+               f"{self.room} {self.title}"
 
 
     # TIME TABLE
@@ -97,7 +95,6 @@ def get_time(hour, length=1):
     return start_time[hour], end_time[hour+length-1]
 
 
-
 def get_day(day):
     days = {
         'po': 0,
@@ -115,20 +112,9 @@ def get_day(day):
 schedule = []
 
 
-
-
 def add_event(subject):
     begin_time, end_time = get_timeslot(subject)
 
-    print("Preparing event...")
-    print(f"Subject: {subject.subject}")
-    print(f"Teacher: {subject.teacher}")
-    print(f"Type: {subject.subject_type}")
-    print(f"Title: {subject.title}")
-    print(f"Location: {subject.room}")
-    print(f"Begin: {begin_time}")
-    print(f"End: {end_time}")
-    print("")
     rrule = f"FREQ=WEEKLY;UNTIL={end_date}"
     e = Event()
     # teacher = name + email
@@ -144,9 +130,11 @@ def add_event(subject):
     e.extra.append(ContentLine(name="RRULE", value=rrule))
 
     c.events.add(e)
+    print("Added event: " + subject.title + " (" + subject.subject_type + ")")
 
 
 def make_calendar():
+    print("Making calendar...")
     for subject in schedule:
         add_event(subject)
 
@@ -172,18 +160,19 @@ def get_timeslot(subject):
     end_date = end_date - datetime.timedelta(hours=1)
     return begin_date, end_date
 
+
 teachers = {}
 
 # if teachers.txt exists - import it
 if os.path.isfile('teachers.txt'):
+    print("Loading teachers.txt...")
     with open('teachers.txt') as f:
         for line in f:
             (key, val) = line.split()
             teachers[key] = val
+else:
+    print("teachers.txt not found")
 
-print ("**********")
-print (teachers)
-print ("**********")
 
 # teachers dict: teacher -> email
 
@@ -192,26 +181,20 @@ def process_row(cells, day):
 
     hour = 0
     for cell in cells:
-        if cell.has_attr('colspan'):
+        if cell.has_attr('colspan'):  # count colspan. if colspan is 2, then it is 2 hours long
             length = int(cell['colspan'])
         else:
             length = 1
-        # beautiful soup: get <abbr> tag
         abbr = cell.find('abbr')
         if abbr is not None:
             # get text between <abbr> and </abbr>
             subject = abbr.get_text()
             # trim the text
             subject = subject.strip()
-            # prednaska or cviceni
-            # find text ". př" or ". cv"
             small_text = cell.find('small').text.strip()
-            # get teacher
             splitted = small_text.split(" ")
-
             splitted = [x.strip() for x in splitted]
             splitted = list(filter(None, splitted))
-            print("splitted: " + str(splitted))
 
             if splitted[1] == "př":
                 subject_type = "Přednáška"
@@ -224,23 +207,11 @@ def process_row(cells, day):
                 teachers[teacher] = teacher + "@vspj.cz"
             title = abbr['title']
 
-
-
-            print("room: " + room)
-            print("teacher: " + teacher)
-            print("Subject type: " + subject_type)
-            print ("subject: " + subject)
-            print("title:" + abbr['title'])
-            print("length: " + str(length))
-            print("hour: " + str(hour))
-            print(f"start time: {get_time(hour)}")
-
             s = Subject(get_day(day), get_time(hour, length)[0], get_time(hour, length)[1], subject_type, subject,
                         teacher, room, title)
 
             schedule.append(s)
             hour = hour + length
-
 
         else:
             hour = hour + length
@@ -252,7 +223,6 @@ def print_schedule():
 
 
 def process_file(filename):
-    rowspans = []
     days = []
     file = open(filename, 'r')
     soup = BeautifulSoup(file, 'html.parser')
@@ -275,18 +245,15 @@ def process_file(filename):
         process_row(cells, day)
         i = i + 1
 
-    print("done")
-    print_schedule()
+    # print_schedule()
     make_calendar()
 
     # if teachers.txt not exists, create it
     if not os.path.exists('teachers.txt'):
+        print("Creating teachers.txt. Please modify their emails if you need to and re-run the program.")
         with open('teachers.txt', 'w') as f:
             for teacher in teachers:
                 f.write(f"{teacher} {teachers[teacher]}\n")
-
-
-    print(c)
 
     with open('calendar.ics', 'w') as f:
         f.writelines(c.serialize_iter())
