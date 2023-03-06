@@ -1,0 +1,6 @@
+venv/
+*.ics
+*.html
+templates/
+.DS_STORE/
+
