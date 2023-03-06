@@ -80,6 +80,8 @@ def get_time(hour, length=1):
     }
     return start_time[hour], end_time[hour+length-1]
 
+
+
 def get_day(day):
     days = {
         'po': 0,
@@ -153,10 +155,15 @@ def get_timeslot(subject):
     date = monday_date + datetime.timedelta(days=subject.day)
 
     start_time = datetime.datetime.strptime(start_time, '%H:%M').time()
+
     end_time = datetime.datetime.strptime(end_time, '%H:%M').time()
-    #start_time = datetime.time.strftime('%H:%M:%S', datetime.datetime.strptime(start_time, '%H:%M').time())
+
     begin_date = datetime.datetime.combine(date, start_time)
     end_date = datetime.datetime.combine(date, end_time)
+
+    # utc to cet
+    begin_date = begin_date - datetime.timedelta(hours=1)
+    end_date = end_date - datetime.timedelta(hours=1)
     return begin_date, end_date
 
 
