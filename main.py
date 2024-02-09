@@ -9,12 +9,13 @@ print('Number of arguments:', len(sys.argv), 'arguments.')
 print('Argument List:', str(sys.argv))
 
 
+# get today date in format DD.MM.YYYY
+start_date_input = input("Enter start date (dd.mm.YYYY). Default is 06.03.2023: ")
+if start_date_input == "":
+    start_date_input = "06.03.2023"
+# convert to datetime outside of the conditional block to ensure it's always applied
+start_date = datetime.datetime.strptime(start_date_input, "%d.%m.%Y")
 
-start_date = input("Enter start date (dd.mm.YYYY). Default is 06.03.2023: ")
-if start_date == "":
-    start_date = "06.03.2023"
-    # convert to datetime
-    start_date = datetime.datetime.strptime(start_date, "%d.%m.%Y")
 
 # # enter end date
 end_date = input("Enter end date (dd.mm.YYYY): Default is 11.06.2023: ")
