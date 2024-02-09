@@ -223,41 +223,43 @@ def print_schedule():
 
 
 def process_file(filename):
-    days = []
     file = open(filename, 'r')
     soup = BeautifulSoup(file, 'html.parser')
-    # get all the rows
-    rows = soup.find_all('tr')
-    # get all <th> tags
-    headers = soup.find_all('th')
-    #count headers with 2 letters in the <th> tag
-    count = 0
-    for header in headers:
-        if len(header.text) == 2:
-            rowspan = int(header['rowspan'])
-            for i in range(rowspan):
-                days.append(header.text)
-            count = count + 1
-    i = 1
-    for day in days:
-        row = rows[i]
-        cells = row.find_all('td')
-        process_row(cells, day)
-        i = i + 1
 
-    # print_schedule()
+    # Initialize a list to hold day information, including any row spans
+    day_info = []
+
+    # Process each row in the table
+    rows = soup.find_all('tr')
+    for row in rows:
+        # Find the day header in this row (if any)
+        header = row.find('th')
+        if header and len(header.text) == 2:  # Check if it's a day header
+            rowspan = int(header.get('rowspan', 1))  # Default rowspan to 1 if not specified
+            day_info.append({'day': header.text, 'rowspan': rowspan, 'processed': 0})
+
+        # Process cells in the current row if it belongs to a day
+        if day_info:
+            current_day_info = day_info[-1]  # Get the most recent day info
+            # Check if the current row is within the rowspan of the current day
+            if current_day_info['processed'] < current_day_info['rowspan']:
+                cells = row.find_all('td')
+                process_row(cells, current_day_info['day'])
+                current_day_info['processed'] += 1  # Increment the processed count for the current day
+
     make_calendar()
 
-    # if teachers.txt not exists, create it
+    # Handle teachers.txt file
     if not os.path.exists('teachers.txt'):
         print("Creating teachers.txt. Please modify their emails if you need to and re-run the program.")
         with open('teachers.txt', 'w') as f:
             for teacher in teachers:
                 f.write(f"{teacher} {teachers[teacher]}\n")
 
+    # Write to calendar.ics
     with open('calendar.ics', 'w') as f:
         f.writelines(c.serialize_iter())
-
     f.close()
+
 
 
