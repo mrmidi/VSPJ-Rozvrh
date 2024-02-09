@@ -15,6 +15,9 @@ python main.py
 ```
 4. Follow the instructions
 
+## Optional
+You can add teachers email addresses to the teachers.txt file. You will be able to write them right from your calendar.
+
 ## Notice
 I really hope that IS will be changed soon and this app will be useless. But until then, enjoy.
 
